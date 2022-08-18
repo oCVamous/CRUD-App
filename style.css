@@ -2,10 +2,20 @@ body {
     margin: 0px;
 }
 
-header {
+.navbar {
     background-color: lightgrey;
-    display: block;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     text-transform: capitalize;
+}
+
+.icon {
+    height: 40px;
+}
+
+.icon:hover {
+    cursor: pointer;
 }
 
 .title {
@@ -23,3 +33,4 @@ header {
 #person-card:hover {
     border: 5px solid gray;
 }
+
