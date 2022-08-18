@@ -2,6 +2,10 @@ body {
     margin: 0px;
 }
 
+.d-none {
+    display: none !important;
+}
+
 .navbar {
     background-color: lightgrey;
     display: flex;

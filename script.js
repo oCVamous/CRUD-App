@@ -31,30 +31,14 @@ function templateContent(firstname, lastname, phoneNumber) {
 }
 
 function addUser() {
-    templateNewUser();
+    openNewUser();
 }
 
-function templateNewUser() {
+function openNewUser() {
     document.getElementById('newUser').classList.remove('d-none');
-    let newUser = document.getElementById('newUser');
-    newUser.innerHTML +=
-    `   <div id="firstname-box">
-            <input class="input" placeholder="Firstame" id="newFirstName" type="text">
-        </div>
-        
-        <div id="lastname-box">
-            <input class="input" placeholder="Lastname" id="newLastName type="text">
-        </div>
-        
-        <div id="phoneNumber-box">
-            <input class="input" placeholder="Phone-Number" id="newPhoneNumber" type="text">
-        </div>
-        
-        <button class="input" >Add</button>
+}
 
-        <div id="close-box">
-            <img onclick="addUser()" class="icon" src="img/cancel.png" alt="">
-        </div>
-    `;
+function close() {
+    document.getElementById('newUser').classList.add('d-none');
 }
 
