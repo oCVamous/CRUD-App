@@ -12,6 +12,7 @@ body {
 
 .icon {
     height: 40px;
+    width: 40px;
 }
 
 .icon:hover {
@@ -32,5 +33,16 @@ body {
 
 #person-card:hover {
     border: 5px solid gray;
+}
+
+#newUser {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    width: 80px;;
 }
 

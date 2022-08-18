@@ -36,11 +36,25 @@ function addUser() {
 
 function templateNewUser() {
     document.getElementById('newUser').classList.remove('d-none');
-    return `
-        <input placeholder="name" id="newFirstName" type="text">
-        <input placeholder="name" id="newLastName type="text">
-        <input placeholder="name" id="newPhoneNumber" type="text">
-        <button>Add</button>
+    let newUser = document.getElementById('newUser');
+    newUser.innerHTML +=
+    `   <div id="firstname-box">
+            <input class="input" placeholder="Firstame" id="newFirstName" type="text">
+        </div>
+        
+        <div id="lastname-box">
+            <input class="input" placeholder="Lastname" id="newLastName type="text">
+        </div>
+        
+        <div id="phoneNumber-box">
+            <input class="input" placeholder="Phone-Number" id="newPhoneNumber" type="text">
+        </div>
+        
+        <button class="input" >Add</button>
+
+        <div id="close-box">
+            <img onclick="addUser()" class="icon" src="img/cancel.png" alt="">
+        </div>
     `;
 }
 
