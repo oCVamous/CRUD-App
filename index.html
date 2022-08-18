@@ -10,10 +10,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body onload="init()">
-    <header>
-        <h1 class="title">Kontaktbuch</h1>
+    <div class="navbar">
+        <a target="_blank" href="https://github.com/oCVamous/CRUD-App"> <img class="icon" src="img/github.png"> </a>
+        <h1 class="title">My Contacts</h1>
+        <img onclick="addUser()" class="icon" src="img/add-user.png" alt="">
+    </div>
+        
     </header>
-
+    
+    <div class="d-none" id="newUser"></div>
     <div id="content"></div>
     
     
