@@ -9,7 +9,7 @@ async function init() {
 function render() {
     let content = document.getElementById('content');
     content.innerHTML = '';
-    
+
     for (let i = 0; i < persons.length; i++) {
         const person = persons[i];
         const firstname = person['firstname'];
@@ -20,16 +20,27 @@ function render() {
     }
 }
 
-
 function templateContent(firstname, lastname, phoneNumber) {
     return `
     <div id="person-card">
-        <b>Vorname: </b> ${firstname} <br>
-        <b>Nachname: </b> ${lastname} <br>
-        <b>Telefonnummer: </b> ${phoneNumber} <br>
+        <b>Firstname: </b> ${firstname} <br>
+        <b>Lastname: </b> ${lastname} <br>
+        <b>Phone-Number: </b> ${phoneNumber} <br>
     </div>
-
     `;
+}
 
+function addUser() {
+    templateNewUser();
+}
+
+function templateNewUser() {
+    document.getElementById('newUser').classList.remove('d-none');
+    return `
+        <input placeholder="name" id="newFirstName" type="text">
+        <input placeholder="name" id="newLastName type="text">
+        <input placeholder="name" id="newPhoneNumber" type="text">
+        <button>Add</button>
+    `;
 }
 
