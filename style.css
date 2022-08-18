@@ -44,9 +44,18 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    background-color: lightblue;
 }
 
 .input {
     width: 80px;;
+}
+
+.end {
+    text-align: center;
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
 }
 

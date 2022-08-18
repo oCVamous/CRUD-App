@@ -13,7 +13,7 @@
     <div class="navbar">
         <a target="_blank" href="https://github.com/oCVamous/CRUD-App"> <img class="icon" src="img/github.png"> </a>
         <h1 class="title">My Contacts</h1>
-        <img onclick="addUser()" class="icon" src="img/add-user.png" alt="">
+        <img onclick="show()" class="icon" src="img/add-user.png" alt="">
     </div>
         
     </header>
@@ -31,13 +31,21 @@
             <input class="input" placeholder="Phone-Number" id="newPhoneNumber" type="text">
         </div>
         
-        <button class="input" >Add</button>
+        <button onclick="addUser()" class="input" >Add</button>
 
-        <div onclick="close()"  id="close-box">
-            <img onclick="close()" class="icon" src="img/cancel.png" alt="">
+        <div onclick="closeNewUser()"  id="close-box">
+            <img onclick="closeNewUser()" class="icon" src="img/cancel.png" alt="">
         </div>
     </div>
+
     <div id="content"></div>
+
+    <div class="end">
+        <span>This code was made with passion</span> <br>
+        <span>
+          © by Patrick Sterz 2022
+        </span>
+    </div>
     
     
 </body>

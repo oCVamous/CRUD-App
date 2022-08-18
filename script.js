@@ -30,7 +30,7 @@ function templateContent(firstname, lastname, phoneNumber) {
     `;
 }
 
-function addUser() {
+function show() {
     openNewUser();
 }
 
@@ -38,7 +38,19 @@ function openNewUser() {
     document.getElementById('newUser').classList.remove('d-none');
 }
 
-function close() {
+function closeNewUser() {
     document.getElementById('newUser').classList.add('d-none');
+}
+
+function addUser() {
+    let firstname = document.getElementById('newFirstName').value;
+    let lastname = document.getElementById('newFirstName').value;
+    let phoneNumber = document.getElementById('newFirstName').value;
+
+    persons.push({
+        "firstname": firstname.value,
+        "lastname": lastname.value,
+        "phoneNumber": phoneNumber.value
+    });
 }
 
