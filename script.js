@@ -57,33 +57,48 @@ function edit(i) {
     trashFolderModal.classList.remove('d-none');
 }
 
-function closeEditor() {
-    document.getElementById('user-edit').classList.add('d-none');
-}
-
 function hideAllBlur() {
     document.getElementById('allBlur').classList.add('d-none');
     document.getElementById('editor').classList.add('d-none');
 }
 
 function addUser() {
-    let firstname = document.getElementById('newFirstName');
-    let lastname = document.getElementById('newLastName');
-    let phoneNumber = document.getElementById('newPhoneNumber');
+    let firstname = document.getElementById('newFirstName-add').value;
+    let lastname = document.getElementById('newLastName-add').value;
+    let phoneNumber = document.getElementById('newPhoneNumber-add').value;
 
     persons.push({
-        "firstname": firstname.value,
-        "lastname": lastname.value,
-        "phoneNumber": phoneNumber.value
+        "firstname": firstname,
+        "lastname": lastname,
+        "phoneNumber": phoneNumber
     });
-    firstname.value = '';
-    lastname.value = '';
-    phoneNumber.value = '';
     render();
+    save();
+}
+
+function addUserEdit() {
+    let firstname = document.getElementById('newFirstName-edit').value;
+    let lastname = document.getElementById('newLastName-edit').value;
+    let phoneNumber = document.getElementById('newPhoneNumber-edit').value;
+
+    persons.push({
+        "firstname": firstname,
+        "lastname": lastname,
+        "phoneNumber": phoneNumber
+    });
+    render();
+    save();
+    hideAllBlur();
+}
+
+function save() {
+    let personsAsText = JSON.stringify(persons); //Stringyify ---> Umwandlung in Text
+    localStorage.setItem('persons', personsAsText);
 }
 
 function deleteContact(i) {
     persons.splice(i, 1);
     render();
+    save();
 }
 

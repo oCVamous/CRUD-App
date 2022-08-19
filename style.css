@@ -64,6 +64,9 @@ body {
     align-items: center;
 }
 
+#content {
+    padding: 50px;
+}
 #card-data {
     padding-top: 10px;
 }
@@ -90,7 +93,10 @@ body {
     bottom: 0px;
     margin: auto;
     border-radius: 5px;
-    
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .end {
