@@ -16,7 +16,28 @@
             <h1 class="title">My Contacts</h1>
             <img onclick="show()" class="icon" src="img/add-user.png" alt="">
         </div>
-            
+        
+        <div id="editor" class="d-none">
+            <div  id="user-edit">
+                <div id="firstname-box">
+                    <input class="input" placeholder="Firstame" id="newFirstName-edit" type="text">
+                </div>
+                
+                <div id="lastname-box">
+                    <input class="input" placeholder="Lastname" id="newLastName-edit" type="text">
+                </div>
+                
+                <div id="phoneNumber-box">
+                    <input class="input" placeholder="Phone-Number" id="newPhoneNumber-edit" type="text">
+                </div>
+                
+                <button onclick="addUserEdit()" class="input">Add</button>
+        
+                <div onclick="closeNewUser()"  id="close-box">
+                    <img onclick="hideAllBlur()" class="icon" src="img/cancel.png" alt="">
+                </div>
+            </div>
+        </div>
         
     
         <div class="d-none" id="newUser">

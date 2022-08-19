@@ -57,7 +57,6 @@ function edit(i) {
     let editor = document.getElementById(`editor`);
     editor.classList.remove('d-none');
     trashFolderModal.classList.remove('d-none');
-    editor.innerHTML += templateCreateEditCard(i);
 }
 
 function hideAllBlur() {
@@ -113,29 +112,5 @@ function deleteContact(i) {
     save();
 }
 
-function templateCreateEditCard(i) {
-    return `
-    <div id="editor" class="d-none">
-    <div  id="user-edit">
-        <div id="firstname-box">
-            <input class="input" placeholder="Firstame" id="newFirstName-edit" type="text">
-        </div>
-        
-        <div id="lastname-box">
-            <input class="input" placeholder="Lastname" id="newLastName-edit" type="text">
-        </div>
-        
-        <div id="phoneNumber-box">
-            <input class="input" placeholder="Phone-Number" id="newPhoneNumber-edit" type="text">
-        </div>
-        
-        <button onclick="addUserEdit()" class="input">Add</button>
 
-        <div onclick="closeNewUser()"  id="close-box">
-            <img onclick="hideAllBlur()" class="icon" src="img/cancel.png" alt="">
-        </div>
-    </div>
-</div>
-    `;
-}
 
