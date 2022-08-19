@@ -43,14 +43,17 @@ function closeNewUser() {
 }
 
 function addUser() {
-    let firstname = document.getElementById('newFirstName').value;
-    let lastname = document.getElementById('newFirstName').value;
-    let phoneNumber = document.getElementById('newFirstName').value;
+    let firstname = document.getElementById('newFirstName');
+    let lastname = document.getElementById('newLastName');
+    let phoneNumber = document.getElementById('newPhoneNumber');
 
     persons.push({
         "firstname": firstname.value,
         "lastname": lastname.value,
         "phoneNumber": phoneNumber.value
     });
+    firstname.value = '';
+    lastname.value = '';
+    phoneNumber.value = '';
 }
 
