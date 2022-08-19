@@ -63,6 +63,7 @@ function closeEditor() {
 
 function hideAllBlur() {
     document.getElementById('allBlur').classList.add('d-none');
+    document.getElementById('editor').classList.add('d-none');
 }
 
 function addUser() {
