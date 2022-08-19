@@ -86,7 +86,7 @@ function addUser() {
         "lastname": lastname,
         "phoneNumber": phoneNumber
     });
-    render();
+    renderPersons();
     save();
 }
 
@@ -100,7 +100,7 @@ function addUserEdit() {
         "lastname": lastname,
         "phoneNumber": phoneNumber
     });
-    render();
+    renderPersons();
     save();
     hideAllBlur();
 }
@@ -112,7 +112,7 @@ function save() {
 
 function deleteContact(i) {
     persons.splice(i, 1);
-    render();
+    renderPersons();
     save();
 }
 
