@@ -14,7 +14,7 @@
         <div class="navbar">
             <a target="_blank" href="https://github.com/oCVamous/CRUD-App"> <img class="icon" src="img/github.png"> </a>
             <h1 class="title">My Contacts</h1>
-            <img onclick="show()" class="icon" src="img/add-user.png" alt="">
+            <img onclick="showNewUserDialog()" class="icon" src="img/add-user.png" alt="">
         </div>
         
         <div id="editor" class="d-none">
@@ -33,7 +33,7 @@
                 
                 <button onclick="addUserEdit()" class="input">Add</button>
         
-                <div onclick="closeNewUser()"  id="close-box">
+                <div onclick="closeNewUserDialogEdit()">
                     <img onclick="hideAllBlur()" class="icon" src="img/cancel.png" alt="">
                 </div>
             </div>
@@ -55,8 +55,8 @@
             
             <button onclick="addUser()" class="input" >Add</button>
     
-            <div onclick="closeNewUser()"  id="close-box">
-                <img onclick="closeNewUser()" class="icon" src="img/cancel.png" alt="">
+            <div onclick="closeNewUserDialog()">
+                <img class="icon" src="img/cancel.png" alt="">
             </div>
         </div>
     

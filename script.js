@@ -1,53 +1,65 @@
-let persons = [];
+let persons = [
+    {
+        "firstname": "Johnny",
+        "lastname": "Depp",
+        "phoneNumber": "987654321"
+    },
+    {
+        "firstname": "Thomas",
+        "lastname": "Müller",
+        "phoneNumber": "123456789"
+    }
+];
 
 async function init() {
-    let resp = await fetch('./persons.json');
-    persons = await resp.json();
-    load();
-    render();
-    
+    loadPersons();
+    renderPersons();
 }
 
-function render() {
-    let content = document.getElementById('content');
-    content.innerHTML = '';
-
-    for (let i = 0; i < persons.length; i++) {
-        const person = persons[i];
-        const firstname = person['firstname'];
-        const lastname = person['lastname'];
-        const phoneNumber = person['phoneNumber'];
-        
-        content.innerHTML +=  templateCreateCard(firstname, lastname, phoneNumber, i);
+function loadPersons() {
+    let personsAsText = localStorage.getItem('persons');
+    if(personsAsText) {
+        persons = JSON.parse(personsAsText);
     }
 }
 
-function templateCreateCard(firstname, lastname, phoneNumber, i) {
+function renderPersons() {
+    let content = document.getElementById('content');
+    content.innerHTML = '';
+
+    for (let i = 0; i < persons.length; i++) {        
+        content.innerHTML +=  createTemplatePersonCard(i);
+    }
+}
+
+function createTemplatePersonCard(personIndex) {
+    const person = persons[personIndex];
     return `
     <div id="person-card">
         <div id="person-card-top">
-            <img onclick="edit(${i})" class="edit" src="img/edit.png" alt="">
-            <button onclick="deleteContact(${i})">X</button>
+            <img onclick="edit(${personIndex})" class="edit" src="img/edit.png" alt="">
+            <button onclick="deleteContact(${personIndex})">X</button>
         </div>
         <div id="card-data"
-            <b>Firstname: </b> ${firstname} <br>
-            <b>Lastname: </b> ${lastname} <br>
-            <b>Phone-Number: </b> ${phoneNumber} <br>
+            <b>Firstname: </b> ${person.firstname} <br>
+            <b>Lastname: </b> ${person.lastname} <br>
+            <b>Phone-Number: </b> ${person.phoneNumber} <br>
         </div>
     </div>
     
     `;
 }
 
-function show() {
-    openNewUser();
-}
-
-function openNewUser() {
+function showNewUserDialog() {
     document.getElementById('newUser').classList.remove('d-none');
 }
 
-function closeNewUser() {
+function closeNewUserDialog() {
+    document.getElementById('newUser').classList.add('allBlur');
+    document.getElementById('newUser').classList.add('d-none');
+}
+
+function closeNewUserDialogEdit() {
     document.getElementById('newUser').classList.add('allBlur');
     document.getElementById('newUser').classList.add('d-none');
 }
@@ -96,14 +108,6 @@ function addUserEdit() {
 function save() {
     let personsAsText = JSON.stringify(persons); //Stringyify ---> Umwandlung in Text
     localStorage.setItem('persons', personsAsText);
-}
-
-function load() {
-    let personsAsText = localStorage.getItem('persons');
-    if(personsAsText) {
-        persons = JSON.parse(personsAsText);
-    }
-    
 }
 
 function deleteContact(i) {
