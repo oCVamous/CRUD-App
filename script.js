@@ -16,17 +16,24 @@ function render() {
         const lastname = person['lastname'];
         const phoneNumber = person['phoneNumber'];
         
-        content.innerHTML +=  templateContent(firstname, lastname, phoneNumber, i);
+        content.innerHTML +=  templateCreateCard(firstname, lastname, phoneNumber, i);
     }
 }
 
-function templateContent(firstname, lastname, phoneNumber) {
+function templateCreateCard(firstname, lastname, phoneNumber, i) {
     return `
     <div id="person-card">
-        <b>Firstname: </b> ${firstname} <br>
-        <b>Lastname: </b> ${lastname} <br>
-        <b>Phone-Number: </b> ${phoneNumber} <br>
+        <div id="person-card-top">
+            <img onclick="edit(${i})" class="edit" src="img/edit.png" alt="">
+            <button onclick="deleteContact(${i})">X</button>
+        </div>
+        <div id="card-data"
+            <b>Firstname: </b> ${firstname} <br>
+            <b>Lastname: </b> ${lastname} <br>
+            <b>Phone-Number: </b> ${phoneNumber} <br>
+        </div>
     </div>
+    
     `;
 }
 
@@ -39,7 +46,23 @@ function openNewUser() {
 }
 
 function closeNewUser() {
+    document.getElementById('newUser').classList.add('allBlur');
     document.getElementById('newUser').classList.add('d-none');
+}
+
+function edit(i) {
+    let trashFolderModal = document.getElementById('allBlur');
+    let editor = document.getElementById(`editor`);
+    editor.classList.remove('d-none');
+    trashFolderModal.classList.remove('d-none');
+}
+
+function closeEditor() {
+    document.getElementById('user-edit').classList.add('d-none');
+}
+
+function hideAllBlur() {
+    document.getElementById('allBlur').classList.add('d-none');
 }
 
 function addUser() {
@@ -55,5 +78,11 @@ function addUser() {
     firstname.value = '';
     lastname.value = '';
     phoneNumber.value = '';
+    render();
+}
+
+function deleteContact(i) {
+    persons.splice(i, 1);
+    render();
 }
 
