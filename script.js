@@ -11,6 +11,8 @@ let persons = [
     }
 ];
 
+let personEditIndex;
+
 async function init() {
     loadPersons();
     renderPersons();
@@ -65,10 +67,15 @@ function closeNewUserDialogEdit() {
 }
 
 function edit(i) {
+    personEditIndex = i;
     let trashFolderModal = document.getElementById('allBlur');
     let editor = document.getElementById(`editor`);
     editor.classList.remove('d-none');
     trashFolderModal.classList.remove('d-none');
+
+    document.getElementById('newFirstName-edit').value = persons[personEditIndex].firstname;
+    document.getElementById('newLastName-edit').value = persons[personEditIndex].lastname;
+    document.getElementById('newPhoneNumber-edit').value = persons[personEditIndex].phoneNumber;
 }
 
 function hideAllBlur() {
@@ -95,7 +102,7 @@ function addUserEdit() {
     let lastname = document.getElementById('newLastName-edit').value;
     let phoneNumber = document.getElementById('newPhoneNumber-edit').value;
 
-    persons.push({
+    persons[personEditIndex]=({
         "firstname": firstname,
         "lastname": lastname,
         "phoneNumber": phoneNumber
